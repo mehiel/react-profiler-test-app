@@ -3,6 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    counter: 0
+  }
+
+  increaseCounter = () => {
+    this.setState(state => ({ counter: state.counter + 1 }))
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,14 +19,10 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1 className="App-link">
+            {this.state.counter}
+          </h1>
+          <button onClick={this.increaseCounter}>INC</button>
         </header>
       </div>
     );
